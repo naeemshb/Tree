@@ -20,7 +20,9 @@ fff= Node(["num", 1], parent=f)
 c = Node(["op", 'XOR'], parent=a)
 cc = Node(["num", 1], parent=c)
 ccc = Node(["num", 0], parent=c)
-d = Node(["num", 2], parent=a)
+d = Node(["op", 'AND'], parent=a)
+dd = Node(["num", 1], parent=d)
+ddd = Node(["num", 1], parent=d)
 
 
 root.left = a
@@ -39,6 +41,8 @@ g.left = gg
 g.right = ggg
 h.left = hh
 h.right = hhh
+d.left = dd
+d.right = ddd
 
 #print(RenderTree(root))
 for pre, fill, node in RenderTree(root):
@@ -73,6 +77,9 @@ def my_min_function(a, b):
 def my_OR_function(a, b):
     return a or b
 
+def my_AND_function(a, b):
+    return a and b
+
 def my_XOR_function(a, b):
     return (a and not b) or (not a and b)
 
@@ -106,7 +113,8 @@ def evaluate(mytree):
             result += my_min_function(evaluate(mytree.left), evaluate(mytree.right))
         case "OR":
             result += my_OR_function(evaluate(mytree.left), evaluate(mytree.right))
-
+        case "AND":
+            result += my_AND_function(evaluate(mytree.left), evaluate(mytree.right))
         case "XOR":
             result += my_XOR_function(evaluate(mytree.left), evaluate(mytree.right))
     return result
