@@ -82,7 +82,14 @@ def my_AND_function(a, b):
 
 def my_XOR_function(a, b):
     return (a and not b) or (not a and b)
-
+      # For the case that we don't want logical XOR and it return negative value. Because, in this case it can change the evaluation value negative and it is not true.
+      '''
+      s = (a * -b) + (-a * b)
+      if s < 0:
+            return (a and not b) or (not a and b)
+       else:
+            return s
+      '''
 def my_div_function(a, b):
     return float(a) / float(b)
 
