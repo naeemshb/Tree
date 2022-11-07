@@ -15,11 +15,11 @@ h = Node(["op", 'mul'], parent=e)
 hh = Node(["num", 2], parent=h)
 hhh = Node(["num", 3], parent=h)
 f = Node(["op", 'OR'], parent=b)
-ff = Node(["num", 4], parent=f)
+ff = Node(["num", 0], parent=f)
 fff= Node(["num", 1], parent=f)
 c = Node(["op", 'XOR'], parent=a)
 cc = Node(["num", 1], parent=c)
-ccc = Node(["num", 3], parent=c)
+ccc = Node(["num", 0], parent=c)
 d = Node(["num", 2], parent=a)
 
 
