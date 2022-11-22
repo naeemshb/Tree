@@ -15,7 +15,7 @@ def Depth(node):
 	else:
 		leftdepth = Depth(node.left)
 		rightdepth = Depth(node.right)
-
+		#return max(leftdepth, rightdepth) +1
 
 		if (leftdepth > rightdepth):
 			return leftdepth+1
