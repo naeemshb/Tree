@@ -134,32 +134,16 @@ def remove_references (mytree):
 def main ():
     copies = []
     print("allocating")
-    for i in range(10000):
-        root = create_dummy_tree()
-        copies.append(root)
-    print("deallocating")
-    for i in range(5000):
-        remove_references(copies[-1-i])
-        copies.pop()
-    gc.collect()
-    
-    print("allocating")
-    for i in range(10000):
-        root = create_dummy_tree()
-        copies.append(root)
-    print("deallocating")
-    for i in range(5000):
-        deallocate(copies[-1-i])
-        copies.pop()
-    
-    print("allocating")
-    for i in range(10000):
+    for i in range(20000):
         root = create_dummy_tree()
         copies.append(root)
     print("deallocating")
     for i in range(20000):
-        deallocate(copies[-1-i])
+        remove_references(copies[i])
+    for i in range(20000):
         copies.pop()
+    gc.collect()
+    
     #print(RenderTree(root))
     #for pre, fill, node in RenderTree(root):
     #    print("%s%s" % (pre, node.name))
