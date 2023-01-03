@@ -38,8 +38,6 @@ def create_node(the_name, the_parent, relationship_with_parent):
 
 def update_heights(height_dict, node_name):
     for i, p in enumerate(relations[node_name]):
-        print(p)
-        print(i)
         if height_dict[p] < len(relations[node_name][i:]):
             height_dict[p] += 1
 
